@@ -1,3 +1,5 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Library</a>
@@ -28,7 +30,7 @@
         </li>
       </ul>
       <form class="d-flex">
-        Profile Pic
+        <img src="{% static "images/default_pic.png" %}" height="40px" width="50px" class="rounded-circle" />
       </form>
     </div>
   </div>
