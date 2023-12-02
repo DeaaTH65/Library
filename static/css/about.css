@@ -1,0 +1,19 @@
+#about {
+    font-size: 14px;
+    background: #B1C9EF;
+}
+
+#about h2 {
+    font-size: 22px;
+    margin: 15px 0 10px 0;
+    padding: 3px 0 0 0;
+    line-height: 1;
+    font-weight: 700;
+}
+
+#about p {
+    font-size: 20px;
+    margin: 0 30px 0;
+    padding: 0px 0 2px 0;
+    font-weight: 500;
+}
