@@ -14,23 +14,30 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url "about" %}">About</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Action
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Login</a></li>
-            <li><a class="dropdown-item" href="#">Register</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url "contact" %}">Contact us</a>
         </li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="">Logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "login" %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Signup</a>
+          </li>
+        {% endif %}
+        
       </ul>
       <form class="d-flex">
-        <img src="{% static "images/default_pic.png" %}" height="40px" width="50px" class="rounded-circle" />
+        {% if user.is_authenticated %}
+          <img src="{{user.profile_pic}}" height="40px" width="50px" class="rounded-circle" />
+        {% else %}
+          <img src="{% static "images/default_pic.png" %}" height="40px" width="50px" class="rounded-circle" />
+        {% endif %}
       </form>
     </div>
   </div>
