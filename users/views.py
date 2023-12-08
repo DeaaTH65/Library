@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from .models import CustomUser
 
 
 
@@ -26,4 +27,46 @@ def user_logout(request):
 
 
 def user_register(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        user = authenticate(request, first_name=first_name, last_name=last_name, email=email, password1=password1, password2=password2)
+        
+        login(request, user)
+        return redirect('home')
+    
+    return render(request, 'users/register.html')
+
+
+def user_register(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        if password1 == password2:
+            if not CustomUser.objects.filter(email=email).exists():
+                # Create a new user
+                user = CustomUser.objects.create_user(
+                    first_name=first_name,
+                    last_name=last_name,
+                    email=email,
+                    password=password1
+                )
+                # Authenticate and log in the user
+                authenticate_user = authenticate(request, username=email, password=password1)
+                login(request, authenticate_user)
+                return redirect('home')
+            else:
+                # Email is already registered
+                pass
+        else:
+            # Passwords do not match
+            pass
+    
     return render(request, 'users/register.html')

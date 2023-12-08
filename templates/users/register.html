@@ -3,30 +3,37 @@
 {% block title %}Register{% endblock title %}
 
 {% block content %}
-<div class="main-w3layouts wrapper">
-    <h1>User SignUp Form</h1>
-    <div class="main-agileinfo">
-        <div class="agileits-top">
-            <form action="#" method="post">
-                <input class="text" type="text" name="first_name" placeholder="First Name" required="">
-                <input class="text" type="text" name="last_name" placeholder="Last Name" required="">
-                <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="text" name="bio" placeholder="Bio" required="">
-                <input class="text" type="file" name="profile" placeholder="pp" required="">
-                <input class="text" type="url" name="social" placeholder="Social" required="">
-                <input class="text" type="password" name="password" placeholder="Password" required="">
-                <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-                <div class="wthree-text">
-                    <label class="anim">
-                        <input type="checkbox" class="checkbox" required="">
-                        <span>I Agree To The Terms & Conditions</span>
-                    </label>
-                    <div class="clear"> </div>
-                </div>
-                <input type="submit" value="SIGNUP">
-            </form>
-            <p>Already have an Account? <a href="#"> Login Now!</a></p>
-        </div>
+<div class="login_container">
+    <div class="wrapper">
+        <div class="title"><span>Register Form</span></div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <i class="fa-solid fa-user-pen"></i>
+                <input type="text" placeholder="First Name" name="first_name" required>
+            </div>
+            <div class="row">
+                <i class="fa-solid fa-user-pen"></i>
+                <input type="text" placeholder="Last Name" name="last_name" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Email" name="email" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" name="password1" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Retype Password" name="password2" required>
+            </div>
+            <div class="pass"><a href="#">Forgot password?</a></div>
+            <div class="row button">
+                <input type="submit" value="Register">
+            </div>
+            <div class="signup-link">Already have account? <a href="{% url "login" %}">Login</a></div>
+        </form>
     </div>
 </div>
 {% endblock content %}
