@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import CustomUser
+from .decorators import user_not_authenticated
 
 
 
@@ -21,26 +22,13 @@ def user_login(request):
     return render(request, 'users/login.html')
 
 
+@user_not_authenticated
 def user_logout(request):
     logout(request)
     return redirect('home')
 
 
-def user_register(request):
-    if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-        user = authenticate(request, first_name=first_name, last_name=last_name, email=email, password1=password1, password2=password2)
-        
-        login(request, user)
-        return redirect('home')
-    
-    return render(request, 'users/register.html')
-
-
+@user_not_authenticated
 def user_register(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
