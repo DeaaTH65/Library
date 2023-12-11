@@ -22,7 +22,6 @@ def user_login(request):
     return render(request, 'users/login.html')
 
 
-@user_not_authenticated
 def user_logout(request):
     logout(request)
     return redirect('home')

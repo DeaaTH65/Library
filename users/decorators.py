@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 
 
-def user_not_authenticated(function=None, redirect_url='/'):
+def user_not_authenticated(function=None, redirect_url='home'):
     """
         Decorator for views that checks that the user is NOT logged in, redirecting to the homepage if necessary by default.
     """
