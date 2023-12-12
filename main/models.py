@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 
 
 
@@ -16,7 +17,7 @@ class Book(models.Model):
 
 class Reservation(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    reserved_by = models.CharField(max_length=250)
+    reserved_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     reservation_date = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 

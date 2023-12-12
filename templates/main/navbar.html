@@ -30,11 +30,23 @@
             <a class="nav-link" href="{% url "register" %}">Signup</a>
           </li>
         {% endif %}
+
+
+      {% if user.is_superuser %}
+        <li class="nav-item">
+          <a class="nav-link" href="admin/">Admin</a>
+        </li>
+      {% endif %}
         
       </ul>
+
       <form class="d-flex">
         {% if user.is_authenticated %}
-          <img src="{{user.profile_pic}}" height="40px" width="50px" class="rounded-circle" />
+          {% if user.profile_pic %}
+            <img src="{{user.profile_pic}}" height="40px" width="50px" class="rounded-circle" />
+          {% else %}
+            <img src="{% static "images/default_pic.png" %}" height="40px" width="50px" class="rounded-circle" />
+          {% endif %}
         {% else %}
           <img src="{% static "images/default_pic.png" %}" height="40px" width="50px" class="rounded-circle" />
         {% endif %}
