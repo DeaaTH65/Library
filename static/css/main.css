@@ -5,3 +5,33 @@
     background: #D5DEEF;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
+
+
+#homepage {
+    margin: 15px 10px 5px 5px;
+    background-color: #D5DEEF;
+    font-size: 20px;
+}
+
+#padd {
+    padding: 15px 20px;
+}
+
+#side_bar {
+    background-color: #B1C9EF;
+    font-size: 18px;
+}
+
+#side_bar #button {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    background: #395886;
+    border: 1px solid #0f0bf1;
+    cursor: pointer;
+    margin: 15px 0 10px 0;
+}
+  
+#side_bar #button:hover {
+    background: #638ECB;
+}

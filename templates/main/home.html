@@ -3,5 +3,26 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-Homepage
+<div class="home" id="homepage" >
+    <div class="row" id="padd">
+        <div class="col-2" id="side_bar">
+            <h3>Filters</h3>
+            <hr color="blue" size="5" />
+            <p>All books</p>
+            <p>Science</p>
+            <p>Fiction</p>
+            <p>Action</p>
+            <p>Adventure</p>
+            <p>History</p>
+            <p>Philosophy</p>
+            <button class="btn rounded-xl" id="button">Clear all </button>
+        </div>
+
+        <div class="col-10" id="main_bar">
+            <h3>Main content</h3>
+            <hr color="blue" size="5" />
+
+        </div>
+    </div>
+</div>
 {% endblock content %}

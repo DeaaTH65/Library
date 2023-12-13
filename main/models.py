@@ -4,6 +4,9 @@ from users.models import CustomUser
 
 
 # Create your models here.
+
+
+
 class Book(models.Model):
     name = models.CharField(max_length=250, unique=True)
     author = models.CharField(max_length=250)
