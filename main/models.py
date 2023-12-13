@@ -4,13 +4,20 @@ from users.models import CustomUser
 
 
 # Create your models here.
-
+class Category(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = 'Categories'
 
 
 class Book(models.Model):
     name = models.CharField(max_length=250, unique=True)
     author = models.CharField(max_length=250)
-    category = models.CharField(max_length=200)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='books/')
     quantity = models.IntegerField(default=0)
     
