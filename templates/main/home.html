@@ -3,24 +3,5 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class="home" id="homepage" >
-    <div class="row" id="padd">
-        <div class="col-2" id="side_bar">
-            <h3>Filters</h3>
-            <hr color="blue" size="5" />
-            <p>All books</p>
-            {% for category in category %}
-                <p>{{category.name}}</p>
-            {% endfor %}
-            
-            <button class="btn rounded-xl" id="button">Clear all </button>
-        </div>
-
-        <div class="col-10" id="main_bar">
-            <h3>Main content</h3>
-            <hr color="blue" size="5" />
-
-        </div>
-    </div>
-</div>
-{% endblock content %}
+Homepage
+{% endblock %}
