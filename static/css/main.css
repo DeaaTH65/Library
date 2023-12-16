@@ -1,5 +1,4 @@
 
-
 #header {
     color: #444444;
     background: #D5DEEF;
@@ -7,7 +6,7 @@
 }
 
 
-#homepage {
+#book {
     margin: 15px 10px 5px 5px;
     background-color: #D5DEEF;
     font-size: 20px;
@@ -34,4 +33,17 @@
   
 #side_bar #button:hover {
     background: #638ECB;
+}
+
+
+#homepage {
+    height: 100vh;
+    background: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#homepage h2 {
+    color: #D5DEEF;
+    margin-left: 45%;
 }
