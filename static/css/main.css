@@ -47,3 +47,22 @@
     color: #D5DEEF;
     margin-left: 45%;
 }
+
+
+#description {
+    background-color: rgba(177, 201, 239, 0.7);
+    margin: 30px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+}
+
+#desc {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', Verdana;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(7px);
+}
