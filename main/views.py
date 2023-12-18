@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category
+from .models import Category, Book
 
 
 # Create your views here.
@@ -9,7 +9,8 @@ def index(request):
 
 def book(request):
     category = Category.objects.all()
-    return render(request, 'main/book.html', {'category': category})
+    books = Book.objects.all()
+    return render(request, 'main/book.html', {'category': category, 'books': books})
 
 
 def about(request):

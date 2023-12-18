@@ -19,7 +19,21 @@
         <div class="col-10" id="main_bar">
             <h3>Main content</h3>
             <hr color="blue" size="5" />
-
+            
+            {% for book in books %}
+            <div class="display">
+                <div class="books">
+                    <div class="card text-bg-info">
+                        <img src="{{book.image.url}}" class="card-img-top" id="img" alt="picture of book">
+                        <div class="card-body">
+                        <a class="book" href="#"><h5 class="card-title" align="center">{{book.name}}</h5></a>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            {% endfor %}
+            
         </div>
     </div>
 </div>
