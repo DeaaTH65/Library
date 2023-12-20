@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import CustomUser
+from django.contrib import messages
 from .decorators import user_not_authenticated
 
 
@@ -14,7 +15,8 @@ def user_login(request):
         
         if user is not None:
             login(request, user)
-            return redirect('home')
+            messages.success(request, f"Hello <b>{user.first_name} {user.last_name}</b>! You have been logged in")
+            return redirect('home') 
         
         else:
             return redirect('login.html')
@@ -24,6 +26,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
+    messages.info(request, "Logged out successfully!")
     return redirect('home')
 
 
@@ -48,6 +51,7 @@ def user_register(request):
                 # Authenticate and log in the user
                 authenticate_user = authenticate(request, username=email, password=password1)
                 login(request, authenticate_user)
+                messages.success(request, f"Hello <b>{user.email}</b>! Your account has been created and You have been logged in.")
                 return redirect('home')
             else:
                 # Email is already registered
