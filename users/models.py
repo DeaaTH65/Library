@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from django.utils import timezone
 
 
 
@@ -41,6 +42,18 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name", "bio", "profile_pic", "social"]
+
+    def __str__(self):
+        return self.email
+
+
+
+
+
+
+class SubscribedUsers(models.Model):
+    email = models.EmailField(unique=True, max_length=100)
+    created_date = models.DateTimeField('Date created', default=timezone.now)
 
     def __str__(self):
         return self.email
