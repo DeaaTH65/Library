@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'users',
+    'fontawesomefree',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
