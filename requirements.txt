@@ -2,3 +2,4 @@ django
 Pillow
 psycopg2
 fontawesomefree
+django-tinymce
