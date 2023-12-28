@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block title %}Newsletter{% endblock title %}
+
+{% block content %}
+    <div class="newsletter">
+        <form method="POST" class="news">
+            {% csrf_token %}
+            {{ form.as_p  }}
+            {{ form.media  }}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
